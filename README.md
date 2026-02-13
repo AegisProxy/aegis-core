@@ -57,10 +57,10 @@ The server exposes the `scrub_context` tool which can be called from your AI ass
 ### Example
 
 ```python
-from aegis_core.server import scrub_context
+from aegis_core.server import scrub_pii
 
-text = "John Smith's TFN is 123-456-782"
-scrubbed = scrub_context(text)
+text = "John Smith's TFN is 123456782"
+scrubbed = scrub_pii(text)
 print(scrubbed)  # Output: "<PERSON>'s TFN is <AU_TFN>"
 ```
 
