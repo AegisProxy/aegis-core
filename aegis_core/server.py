@@ -21,11 +21,11 @@ anonymizer = AnonymizerEngine()
 
 def scrub_pii(text: str) -> str:
     """
-    Core function to scrub Australian PII from the provided text.
+    Core function to scrub PII from the provided text.
     
     Identifies and pseudonymizes:
-    - Australian Tax File Numbers (TFNs)
-    - Person names
+    - Australian Tax File Numbers (TFNs) - Australian-specific
+    - Person names - general PII detection
     
     Args:
         text: The text to scrub for PII
@@ -53,11 +53,14 @@ def scrub_pii(text: str) -> str:
 @mcp.tool()
 def scrub_context(text: str) -> str:
     """
-    Scrub Australian PII from the provided text.
+    MCP tool wrapper for PII scrubbing functionality.
+    
+    This is the MCP-exposed version of the scrub_pii function,
+    making it available to AI assistants and IDE integrations.
     
     Identifies and pseudonymizes:
-    - Australian Tax File Numbers (TFNs)
-    - Person names
+    - Australian Tax File Numbers (TFNs) - Australian-specific
+    - Person names - general PII detection
     
     Args:
         text: The text to scrub for PII
