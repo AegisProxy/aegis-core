@@ -1,0 +1,26 @@
+{
+  "name": "aegis-core",
+  "version": "0.1.0",
+  "description": "The core security engine and MCP server for AegisProxy. Secures developer IDEs and CLI workflows.",
+  "server": {
+    "command": "aegis",
+    "args": ["serve"],
+    "env": {}
+  },
+  "tools": [
+    {
+      "name": "scrub_context",
+      "description": "Scrub Australian PII from the provided text. Identifies and pseudonymizes Australian Tax File Numbers (TFNs) and person names.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The text to scrub for PII"
+          }
+        },
+        "required": ["text"]
+      }
+    }
+  ]
+}
